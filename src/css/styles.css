@@ -1,0 +1,80 @@
+body, p {
+    font-family: "Zalando Sans Expanded", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: linear-gradient(312deg, #A0A5C2 27.066200657894733%, #CEDDE4 100%);
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #a36328;
+}
+
+.button {
+    pointer-events: auto;
+    cursor: pointer;
+    background: #e7e7e7;
+    border: none;
+    padding: 1rem 3rem;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 1.15rem;
+    border-radius: 0.85rem;
+    color: #fff;
+    &:before {
+        content: '';
+        position: absolute;
+        background: #0f172b;
+        width: 120%;
+        height: 0;
+        padding-bottom: 120%;
+        top: -110%;
+        left: -10%;
+        border-radius: 50%;
+        transform: translate3d(0, 68%, 0) scale3d(0, 0, 0);
+    }
+    span {
+        display: block;
+        position: relative;
+        z-index: 10;
+        color: #fff;
+    }
+    &:after {
+        content: '';
+        background: #0f172b;
+        transform: translate3d(0, -100%, 0);
+        transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    &:hover {
+        &:before {
+            transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+            transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+        }
+        &:before {
+            transform: translate3d(0, 0, 0);
+        }
+        span {
+            animation: MoveScaleUpInitial 0.3s forwards, MoveScaleUpEnd 0.3s forwards 0.3s;
+        }
+        &:after {
+            transform: translate3d(0, 0, 0);
+            transition-duration: 0.05s;
+            transition-delay: 0.4s;
+            transition-timing-function: linear;
+        }
+    }
+}
